@@ -3,15 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Client form</title>
+    <link href="./startbootstrap/css/styles.css" rel="stylesheet" />
+    <title>Fill Form</title>
   </head>
   <body>
-    <div class="formContainer">
-      <form method="POST" action="client">
-        <input type="text" name="firstname" id="firstname" placeholder="Firstname" value="<?php echo isset($_POST['firstname']) ? htmlspecialchars($_POST['firstname']) : ''; ?>" required>
-        <input type="text" name="lastname" id="lastname" placeholder="Lastname" value="<?php echo isset($_POST['lastname']) ? htmlspecialchars($_POST['lastname']) : ''; ?>" required>
-        <input type="date" name="birthdate" id="birthdate" placeholder="birthdate" value="<?php echo isset($_POST['birthdate']) ? htmlspecialchars($_POST['birthdate']) : ''; ?>" required>
-      </form>
+    <div class="mx-auto">
+        <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+            <div class="col-lg-6">
+                <!-- TODO Put action etc -->
+                <form>
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                        <label for="name">Full name</label>
+                        <div class="invalid-feedback" data-sb-feedback="name:required"></div>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
+                        <label for="email">Email address</label>
+                        <div class="invalid-feedback" data-sb-feedback="email:required"></div>
+                        <div class="invalid-feedback" data-sb-feedback="email:email"></div>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
+                        <label for="phone">Phone number</label>
+                        <div class="invalid-feedback" data-sb-feedback="phone:required"></div>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="address" placeholder="Enter your message here..." style="height: 6rem" data-sb-validations="required"></input>
+                        <label for="message">Address</label>
+                        <div class="invalid-feedback" data-sb-feedback="message:required"></div>
+                    </div>
+                    <div class="d-grid"><button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Submit</button></div>
+                </form>
+            </div>
+        </div>
     </div>
   </body>
 </html>
