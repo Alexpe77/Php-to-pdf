@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Client form</title>
+  </head>
+  <body>
+    <div class="formContainer">
+      <form method="POST" action="client">
+        <input type="text" name="firstname" id="firstname" placeholder="Firstname" value="<?php echo isset($_POST['firstname']) ? htmlspecialchars($_POST['firstname']) : ''; ?>" required>
+        <input type="text" name="lastname" id="lastname" placeholder="Lastname" value="<?php echo isset($_POST['lastname']) ? htmlspecialchars($_POST['lastname']) : ''; ?>" required>
+        <input type="date" name="birthdate" id="birthdate" placeholder="birthdate" value="<?php echo isset($_POST['birthdate']) ? htmlspecialchars($_POST['birthdate']) : ''; ?>" required>
+      </form>
+    </div>
+  </body>
+</html>
