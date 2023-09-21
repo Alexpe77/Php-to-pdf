@@ -14,7 +14,7 @@ require_once 'validation.php';
   </head>
   <body>
     
-    <div class="container-fluid bg-img">
+    <div class="container-fluid">
         <div class="row justify-content-center align-items-center vh-100">
             <div class="col-lg-4">
                 <h2 class="text-center fs-1">Complete this form</h2>
@@ -28,7 +28,7 @@ require_once 'validation.php';
                         <label for="email">Email address</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input class="form-control" name="phone" id="phone" type="tel" placeholder="(123) 456-7890" required />
+                        <input class="form-control" name="phone" id="phone" type="tel" placeholder="(123) 456-7890" maxlength="10" required />
                         <label for="phone">Phone number</label>
                     </div>
                     <div class="form-floating mb-3">
