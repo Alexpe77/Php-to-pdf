@@ -7,16 +7,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['name'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
-    $adress = $_POST['adress'];
+    $address = $_POST['address'];
 
     $datas = [
         'name' => $name,
         'email' => $email,
         'phone' => $phone,
-        'adress' => $adress,
+        'address' => $address,
     ];
 
-    $formData = new Form($name, $email, $phone, $adress);
+    $formData = new Form($name, $email, $phone, $address);
     $errors = $formData->validateForm();
 
     if (empty($errors)) {
@@ -28,10 +28,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $pdf->SetFont('Arial', 'B', 16);
         $pdf->Cell(40, 10, 'New contract', 0, 1);
-        $pdf->Cell(40, 10, 'Contractor\'s name :' . $name);
-        $pdf->Cell(40, 10, 'Contractor\'s email :' . $email);
-        $pdf->Cell(40, 10, 'Contractor\'s phone :' . $phone);
-        $pdf->Cell(40, 10, 'Contractor\'s adress :' . $adress);
+        $pdf->Cell(40, 10, 'Contractor\'s name : ' . $name);
+        $pdf->Cell(40, 10, 'Contractor\'s email : ' . $email);
+        $pdf->Cell(40, 10, 'Contractor\'s phone : ' . $phone);
+        $pdf->Cell(40, 10, 'Contractor\'s address : ' . $address);
 
         $pdf->Output('contract.pdf', 'D');
 

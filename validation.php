@@ -5,14 +5,14 @@ class Form {
     private $name;
     private $email;
     private $phone;
-    private $adress;
+    private $address;
 
-    public function __construct($name, $email, $phone, $adress)
+    public function __construct($name, $email, $phone, $address)
     {
         $this->name = $name;
         $this->email = $email;
         $this->phone = $phone;
-        $this->adress = $adress;
+        $this->address = $address;
     }
 
     public function validateForm() {
@@ -40,11 +40,11 @@ class Form {
             $errors['phone'] = "Phone number must contain ten figures.";
         }
 
-        $this->adress = strip_tags(trim($this->adress));
-        if(empty($this->adress)) {
-            $errors['adress'] = "Adress is required.";
-        } elseif (strlen($this->adress) < 5) {
-            $errors['adress'] = "Adress must contain at least five characters.";
+        $this->address = strip_tags(trim($this->address));
+        if(empty($this->address)) {
+            $errors['address'] = "Address is required.";
+        } elseif (strlen($this->address) < 5) {
+            $errors['address'] = "Address must contain at least five characters.";
         }
 
         return $errors;
