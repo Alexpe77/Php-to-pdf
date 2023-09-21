@@ -1,53 +1,43 @@
 <?php
 
-class Form {
+require_once 'validation.php';
 
-    private $name;
-    private $email;
-    private $phone;
-    private $adress;
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    public function __construct($name, $email, $phone, $adress)
-    {
-        $this->name = $name;
-        $this->email = $email;
-        $this->phone = $phone;
-        $this->adress = $adress;
-    }
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $adress = $_POST['adress'];
 
-    public function validate() {
+    $datas = [
+        'name' => $name,
+        'email' => $email,
+        'phone' => $phone,
+        'adress' => $adress,
+    ];
 
-        $errors = [];
+    $formData = new Form($name, $email, $phone, $adress);
+    $errors = $formData->validateForm();
 
-        $this->name = strip_tags(trim($this->name));
-        if(empty($this->name)) {
-            $errors['name'] = "Full name is required.";
-        } elseif (strlen($this->name) < 3) {
-            $errors['name'] = "Full name must contain at least three characters.";
-        }
+    if (empty($errors)) {
+        
+        require_once 'fpdf.php';
 
-        $this->email = trim($this->email);
-        if(empty($this->email)) {
-            $errors['email'] = "Email is required.";
-        } elseif (!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
-            $errors['email'] = "The email adress you entered is not valid.";
-        }
+        $pdf = new FPDF();
+        $pdf->AddPage();
 
-        $this->phone = trim($this->phone);
-        if(empty($this->phone)) {
-            $errors['phone'] = "Phone number is required";
-        } elseif (!preg_match('/^\d{10}$/', $this->phone)) {
-            $errors['phone'] = "Phone number must contain ten figures.";
-        }
+        $pdf->SetFont('Arial', 'B', 16);
+        $pdf->Cell(40, 10, 'New contract', 0, 1);
+        $pdf->Cell(40, 10, 'Contractor\'s name :' . $name);
+        $pdf->Cell(40, 10, 'Contractor\'s email :' . $email);
+        $pdf->Cell(40, 10, 'Contractor\'s phone :' . $phone);
+        $pdf->Cell(40, 10, 'Contractor\'s adress :' . $adress);
 
-        $this->adress = strip_tags(trim($this->adress));
-        if(empty($this->adress)) {
-            $errors['adress'] = "Adress is required.";
-        } elseif (strlen($this->adress) < 5) {
-            $errors['adress'] = "Adress must contain at least five characters.";
-        }
+        $pdf->Output('contract.pdf', 'D');
 
-        return $errors;
+    header('Location: success.php');
+        exit;
     }
 }
-?>
+
+// TODO Include errors the right way
