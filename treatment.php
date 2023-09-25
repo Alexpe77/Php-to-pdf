@@ -21,18 +21,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (empty($errors)) {
         
-        require_once 'fpdf.php';
+        require 'node_modules/html2pdf.js/dist/html2pdf.bundle.min.js';
 
-        $pdf = new FPDF();
-        $pdf->AddPage();
+        $html2pdf = new HTML2PDF('P', 'A4', 'en');
+        $html2pdf->setDefaultFont('Arial', 12);
+        
+        ob_start();
+        include 'contract_model.php';
+        $html = ob_get_clean();
 
-        $pdf->SetFont('Arial', 'B', 16);
-        $pdf->Cell(40, 10, 'New contract', 0, 1);
-        $pdf->Cell(40, 10, 'Contractor\'s name : ' . $name, 0, 1);
-        $pdf->Cell(40, 10, 'Contractor\'s email : ' . $email, 0, 1);
-        $pdf->Cell(40, 10, 'Contractor\'s phone : ' . $phone, 0, 1);
-        $pdf->Cell(40, 10, 'Contractor\'s address : ' . $address, 0,1);
+        $html2pdf->writeHTML($html);
+        
+        $html2pdf->output('lease_agreement.pdf');
 
-        $pdf->Output('contract.pdf', 'D');
+        }
     }
-}
+?>

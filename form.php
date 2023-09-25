@@ -11,7 +11,9 @@ require_once 'validation.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./startbootstrap/css/styles.css" rel="stylesheet" />
     <title>Form</title>
+    <script src="node_modules/html2pdf.js/dist/html2pdf.bundle.min.js"></script>
   </head>
+  
   <body>
     
     <div class="container-fluid">
