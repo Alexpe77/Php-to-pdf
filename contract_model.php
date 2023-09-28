@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="node_modules/html2pdf.js/dist/html2pdf.bundle.min.js"></script>
     <title>Lease agreement model</title>
 </head>
 
@@ -26,13 +25,12 @@
     <p>Phone number : 0475 / 15 45 89</p>
     <h3>Agreement Terms</h3>
     <p>The lease will end upon notice of termination by one or other of the parties at least three months in advance.
-        the expiration of the agreed duration.
         The parties may extend the short-term lease by mutual agreement under the same conditions, including the
         rent without prejudice to indexation. This extension must be made in writing. The lease can be
         extended twice provided that the successive contracts do not have a cumulative duration of more than three years.
         Except in the cases referred to in the preceding paragraph, in the absence of leave notified within the time limit or if, despite the leave given
         by the lessor, the lessee continues to occupy the premises without opposition from the lessor, and even in the event that
-        a new contract is concluded between the same parties, the lease is deemed concluded for a period of nine years from
+        a new contract is concluded between the same parties, the lease is deemed concluded for a period of nine years
         from the date on which the initial short-term lease came into force. In this case, the rent and other
         conditions remain unchanged from those agreed in the initial lease, subject to indexation and
         reasons for revision.</p>
