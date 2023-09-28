@@ -21,19 +21,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (empty($errors)) {
         
-        require 'node_modules/html2pdf.js/dist/html2pdf.bundle.min.js';
+        require 'fpdf.php';
 
-        $html2pdf = new HTML2PDF('P', 'A4', 'en');
-        $html2pdf->setDefaultFont('Arial', 12);
+        $pdf = new FPDF('P', 'A4', 'en');
+        $pdf->AddPage();
+        $pdf->setFont('Arial', 12);
         
-        ob_start();
         include 'contract_model.php';
-        $html = ob_get_clean();
-
-        $html2pdf->writeHTML($html);
         
-        $html2pdf->output('lease_agreement.pdf');
-
+        $pdf->Output('lease_agreement.pdf', 'D');
+        
         }
     }
 ?>
