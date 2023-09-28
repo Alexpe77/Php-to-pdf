@@ -25,7 +25,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $pdf = new FPDF('P', 'mm');
         $pdf->AddPage();
-        $pdf->SetFont('Arial', '', 10);
         $pdf->SetTopMargin(10);
 
         // Underlined and bold title then back to normal
