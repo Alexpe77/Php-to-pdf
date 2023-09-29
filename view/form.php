@@ -9,7 +9,7 @@ require_once 'validation.php';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="./startbootstrap/css/styles.css" rel="stylesheet" />
+    <link href="../startbootstrap/css/styles.css" rel="stylesheet" />
     <title>Form</title>
   </head>
   
@@ -19,7 +19,7 @@ require_once 'validation.php';
         <div class="row justify-content-center align-items-center vh-100">
             <div class="col-lg-4">
                 <h2 class="text-center fs-1">Complete this form</h2>
-                <form class="mt-4" action="treatment.php" method="POST">
+                <form class="mt-4" action="../treatment.php" method="POST">
                     <div class="form-floating mb-3">
                         <input class="form-control" name="name" id="name" type="text" placeholder="Enter your name..." required />
                         <label for="name">Full name</label>
