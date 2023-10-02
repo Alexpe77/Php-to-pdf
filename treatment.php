@@ -21,6 +21,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (empty($errors)) {
         
+        $storagePath = __DIR__ . '/storage/';
+        $pdfFileName = $name . "_lease_agreement.pdf";
+
         require 'fpdf.php';
 
         $pdf = new FPDF('P', 'mm');
@@ -78,7 +81,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $pdf->SetX(110);
         $pdf->Cell(90, 10, 'The Tenant,');
 
-        $pdf->Output('lease_agreement.pdf', 'D');
+        $pdfContent = $pdf->Output('', 'S');
+
+        $pdfFilePath = $storagePath . $pdfFileName;
+
+        file_put_contents($pdfFilePath, $pdfContent);
 
         }
     }
