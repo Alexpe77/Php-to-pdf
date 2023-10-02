@@ -7,3 +7,7 @@ $router->get('/home', function() {
 $router->get('/form', function() {
     include './view/form.php';
 });
+
+$router->get('/success', function() {
+    include './view/success.php';
+});
