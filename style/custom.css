@@ -1,0 +1,11 @@
+.bg-img {
+    background-image: url(../assets/coffee.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.rd {
+    border-radius: 10px;
+    background-color: rgba(233, 223, 223, 0.625);
+}
