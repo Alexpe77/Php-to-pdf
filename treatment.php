@@ -83,12 +83,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $pdfContent = $pdf->Output('', 'S');
 
-        $pdfFilePath = $storagePath . $pdfFileName;
+        $pdfFilePath = $storagePath . '/' . $pdfFileName;
 
         file_put_contents($pdfFilePath, $pdfContent);
 
-        header('Location: view/success.php');
+        session_start();
+        $_SESSION['pdfFileName'] = $pdfFileName;
 
+        header('Location: view/success.php');
+        exit();
         }
     }
 ?>

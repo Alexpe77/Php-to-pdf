@@ -23,19 +23,19 @@ require_once './validation.php';
                     <h2 class="text-center fs-2">Complete this form</h2>
                     <form class="mt-4" action="treatment.php" method="POST">
                         <div class="form-floating mb-3">
-                            <input class="form-control" name="name" id="name" type="text" placeholder="Enter your name..." required />
+                            <input class="form-control" name="name" id="name" type="text" placeholder="Enter your name..." autocomplete="$_SESSION" required />
                             <label for="name">Full name</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input class="form-control" name="email" id="email" type="email" placeholder="name@example.com" required />
+                            <input class="form-control" name="email" id="email" type="email" placeholder="name@example.com" autocomplete="$_SESSION" required />
                             <label for="email">Email address</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input class="form-control" name="phone" id="phone" type="tel" placeholder="(123) 456-7890" maxlength="10" required />
+                            <input class="form-control" name="phone" id="phone" type="tel" placeholder="(123) 456-7890" maxlength="10" autocomplete="$_SESSION" required />
                             <label for="phone">Phone number</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="text" name="address" class="form-control" id="address" placeholder="Enter your adress here..." style="height: 6rem" required></input>
+                            <input type="text" name="address" class="form-control" id="address" placeholder="Enter your adress here..." style="height: 6rem" autocomplete="$_SESSION" required></input>
                             <label for="address">Address</label>
                         </div>
                         <div class="d-grid"><button class="btn btn-primary btn-l" id="submitButton" type="submit">Submit</button></div>
