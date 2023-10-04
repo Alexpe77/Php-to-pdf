@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($errors)) {
         
         $storagePath = __DIR__ . '/storage/';
-        $pdfFileName = $name . "_lease_agreement.pdf";
+        $pdfFileName = $name . time(). "_lease_agreement.pdf";
 
         require 'fpdf.php';
 
@@ -83,15 +83,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $pdfContent = $pdf->Output('', 'S');
 
-        $pdfFilePath = $storagePath . '/' . $pdfFileName;
+        $pdfFilePath = $storagePath . $pdfFileName;
 
         file_put_contents($pdfFilePath, $pdfContent);
 
-        session_start();
-        $_SESSION['pdfFileName'] = $pdfFileName;
-
         header('Location: view/success.php');
         exit();
+
         }
     }
 ?>

@@ -1,11 +1,12 @@
 <?php
 
-session_start();
+include 'treatment.php';
 
-if(isset($_SESSION['pdfFileName'])){
-    $pdfFileName = $_SESSION['pdfFileName'];
-    $storagePath = __DIR__ . '/storage';
-    $pdfFilePath = $storagePath . '/' . $pdfFileName;
+$storagePath = __DIR__ . '/storage/';
+
+if(isset($_GET['file'])){
+    $pdfFileName = basename($_GET['file']);
+    $pdfFilePath = $storagePath. $pdfFileName;
 
     if(file_exists($pdfFilePath)){
         header('Content-Type: application/pdf');
