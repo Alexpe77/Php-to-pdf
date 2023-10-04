@@ -16,12 +16,11 @@ require_once './validation.php';
 </head>
 
 <body class="bg-img">
-
     <div class="container-fluid">
         <div class="row justify-content-center align-items-center vh-100">
             <div class="col-lg-4">
                 <div class="rd p-4 shadow">
-                    <h2 class="text-center fs-1">Complete this form</h2>
+                    <h2 class="text-center fs-2">Complete this form</h2>
                     <form class="mt-4" action="treatment.php" method="POST">
                         <div class="form-floating mb-3">
                             <input class="form-control" name="name" id="name" type="text" placeholder="Enter your name..." required />
