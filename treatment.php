@@ -87,10 +87,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         file_put_contents($pdfFilePath, $pdfContent);
 
-        $newFileName = $name . "_lease_agreement.pdf";
-
-        if(rename($pdfFilePath, $storagePath . $newFileName)) {
-            header('Location: view/success.php?file=' . urlencode($newFileName));
+        if(rename($pdfFilePath, $storagePath . $pdfFileName)) {
+            header('Location: view/success.php?file=' . urlencode($pdfFileName));
             exit();
         } else {
             echo "An error occured during the rename of your file.";
