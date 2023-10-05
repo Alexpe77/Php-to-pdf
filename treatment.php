@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($errors)) {
         
         $storagePath = __DIR__ . '/storage/';
-        $pdfFileName = $name . time(). "_lease_agreement.pdf";
+        $pdfFileName = $name . "_lease_agreement.pdf";
 
         require 'fpdf.php';
 
@@ -87,9 +87,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         file_put_contents($pdfFilePath, $pdfContent);
 
-        header('Location: view/success.php');
-        exit();
+        $newFileName = $name . "_lease_agreement.pdf";
 
+        if(rename($pdfFilePath, $storagePath . $newFileName)) {
+            header('Location: view/success.php?file=' . urlencode($newFileName));
+            exit();
+        } else {
+            echo "An error occured during the rename of your file.";
+        }
+    
         }
     }
-?>

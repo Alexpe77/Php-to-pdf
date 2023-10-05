@@ -8,13 +8,13 @@ if (isset($_GET['file'])) {
 
     if (file_exists($pdfFilePath)) {
         header('Content-Type: application/pdf');
-        header('Content-Disposition: attachment; filename="' . $pdfFileName . '"');
+        header('Content-Disposition: attachment; filename="lease_agreement"');
         readfile($pdfFilePath);
     } else {
         echo "File not found.";
     }
 } else {
-    echo "Invalid request.";
+    echo "Invalid request : No file specified for download.";
 }
 
 ?>
@@ -44,7 +44,7 @@ if (isset($_GET['file'])) {
                 </div>
             </div>
         </nav>
-    <header class="masthead">
+    <header class="masthead d-flex h-100">
         <div class="container px-4 px-lg-5 h-100">
             <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
                 <div class="col-lg-8 align-self-end">
@@ -54,7 +54,7 @@ if (isset($_GET['file'])) {
                     </div>
                     <div class="col-lg-8 align-self-baseline">
                         <p class="text-white-75 mb-5">You can download it below.</p>
-                        <a class="btn btn-primary btn-xl" href="../download.php?file=<?php echo urlencode($pdfFileName); ?>">Download PDF</a>
+                        <a class="btn btn-primary btn-xl" href="/Php-to-pdf/storage/<?php echo urlencode($pdfFileName); ?>" download>Download PDF</a>
                     </div>
                 </div>
             </div>
