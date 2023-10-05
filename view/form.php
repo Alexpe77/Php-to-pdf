@@ -38,6 +38,7 @@ require_once './validation.php';
                             <input type="text" name="address" class="form-control" id="address" placeholder="Enter your adress here..." style="height: 6rem" autocomplete="$_SESSION" required></input>
                             <label for="address">Address</label>
                         </div>
+                        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                         <div class="d-grid"><button class="btn btn-primary btn-l" id="submitButton" type="submit">Submit</button></div>
                     </form>
                 </div>

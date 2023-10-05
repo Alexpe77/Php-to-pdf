@@ -1,8 +1,13 @@
 <?php
+session_start();
 
 require_once 'validation.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (
+        !empty($_POST['csrf_token']) &&
+        hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])
+    ) {
 
     $name = $_POST['name'];
     $email = $_POST['email'];
@@ -23,6 +28,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         $storagePath = __DIR__ . '/storage/';
         $pdfFileName = $name . "_lease_agreement.pdf";
+
+        $csrf_token = bin2hex(random_bytes(32));
+        $_SESSION['csrf_token'] = $csrf_token;
 
         require 'fpdf.php';
 
@@ -95,4 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     
         }
+    } else {
+        echo "CSRF detected. Form submission blocked.";
     }
+}
