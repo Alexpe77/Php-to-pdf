@@ -1,5 +1,7 @@
 <?php
 
+require_once '../config/connect.php';
+
 class UserModel {
     private $db;
 

@@ -8,7 +8,6 @@ $router = new Router();
 
 require_once './config/routes.php';
 
-require_once './config/load_env.php';
-require_once './config/connect.php';
+require_once './Database/DatabaseManager.php';
 
 $router->run();

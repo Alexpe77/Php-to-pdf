@@ -1,13 +1,13 @@
 <?php
 
 $router->get('/home', function() {
-    include './view/home.html';
+    include './views/home.html';
 });
 
 $router->get('/form', function() {
-    include './view/form.php';
+    include './views/form.php';
 });
 
 $router->get('/success', function() {
-    include './view/success.php';
+    include './views/success.php';
 });

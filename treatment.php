@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         file_put_contents($pdfFilePath, $pdfContent);
 
         if(rename($pdfFilePath, $storagePath . $pdfFileName)) {
-            header('Location: view/success.php?file=' . urlencode($pdfFileName));
+            header('Location: views/success.php?file=' . urlencode($pdfFileName));
             exit();
         } else {
             echo "An error occured during the rename of your file.";
