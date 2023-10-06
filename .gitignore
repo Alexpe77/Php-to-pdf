@@ -8,3 +8,4 @@ changelog.htm
 /vendor
 /node_modules
 /misc
+.env
