@@ -2,6 +2,14 @@
 
 require_once './validation.php';
 
+session_start();
+if (empty($_SESSION['csrf_token']) || (isset($_SESSION['csrf_token']['expiration']) && time() > $_SESSION['csrf_token']['expiration'])) {
+    $csrf_token = bin2hex(random_bytes(32));
+        $_SESSION['csrf_token'] = [
+            'token' => $csrf_token,
+            'expiration' => time() + 3600,
+        ];
+    }
 ?>
 
 <!DOCTYPE html>
